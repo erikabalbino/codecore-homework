@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+
+<div class="">
+  <% for (let cohort of cohorts) { %>
+    <div class="card mb-2">
+    <img class="card-img-top" src="<%= cohorts.logoUrl %>" />
+      <div class="card-body">
+        <h4 class="card-title"><%= cohorts.name %></h4>
+        <p class="card-text"><%= cohorts.members %></p>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>
