@@ -1,6 +1,7 @@
 body {
-  padding: 50px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-width: 550px;
 }
 
 a {
@@ -9,4 +10,8 @@ a {
 
 .team_content {
   margin-top: 60px;
+}
+
+.form-group {
+  max-height: 500px;
 }
