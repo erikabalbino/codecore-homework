@@ -32,17 +32,7 @@ router.post('/', (req, res) => {
   }
 });
 
-// router.post('/:id', (req, res) => {
-//   const id = req.params.id;
-//   res.redirect(`/teams/${id}`);
-//
-// });
-
 router.get('/index', (req, res) => {
-  // if (req.body.logUrl || req.body.name || req.body.members) {
-  // } else {
-  //   res.render('teams/index');
-  // }
   knex
   .select()
   .from('cohorts')
@@ -54,9 +44,6 @@ router.get('/index', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  // Paths that have `:` in their name will ne stored as a key value
-  // in req.params. Use it to the `id` of a post.
-  // console.log(req.params);
   const teamId = req.params.id;
   const quantity = Number(req.query.quantity);
   const opt = req.query.method;
@@ -66,18 +53,15 @@ router.get('/:id', (req, res) => {
   }
 
   knex
-    // .select()
-    .first() // replace select with first when you only want one row
+    .first()
     .from('cohorts')
     .where({id: teamId})
     .then(cohorts => {
-      // console.log('co', typeof cohorts.members);
       if (isNaN(parseInt(quantity)) || opt === undefined || cohorts.members === []) {
         return res.render('teams/show', {
-          cohorts: cohorts || {}, group: [], group2: {}
+          cohorts: cohorts || {}, group: [], group2: {}, quantity: quantity, opt: opt
         });
       }
-      // console.log('test');
       let quan_arr = cohorts.members.split(',').map(name => name.trim());
       let person = Math.floor(quan_arr.length / quantity);
       let person2 = Math.round(quan_arr.length / quantity);
@@ -90,7 +74,6 @@ router.get('/:id', (req, res) => {
 
       if (opt === 'teamCount') {
         for (let i = 0; i < quantity; i++) {
-          console.log('teamCount');
           arr[i] = [];
           for (let j = 0; j < person; j++) {
             let idx = Math.floor(Math.random() * quan_arr.length)
@@ -109,7 +92,6 @@ router.get('/:id', (req, res) => {
           }
         }
       } else {
-        console.log('perTeam');
         for (let l = 1; l <= person2; l++) {
           teams[l] = [];
         }
@@ -127,14 +109,13 @@ router.get('/:id', (req, res) => {
       res.render('teams/show', {
         cohorts: cohorts || {},
         group: arr || [],
-        group2: teams || {}
+        group2: teams || {},
+        quantity: quantity,
+        opt: opt
       });
 
-      // res.render('teams/show', {cohorts: cohorts || {}});
-      // res.send(cohorts); --> so para testar
     })
 
-  // res.send(req.params) --> so para testar
 });
 
 module.exports = router;
