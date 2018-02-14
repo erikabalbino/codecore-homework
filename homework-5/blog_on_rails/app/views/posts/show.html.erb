@@ -1,23 +1,29 @@
-<h2><%= @post.title %></h2>
+<div class="container_show"
+  style="margin-left: 10px;
+        margin-top: 20px">
 
-<p><%= @post.body %></p>
+  <div class="" style="font-size: large">
+    <h2><%= @post.title %></h2>
+  </div>
+  <div class="" style="font-size: medium">
+    <p><%= @post.body  %></p>
+  </div>
 
-<div>
-  <small>
+  <div style="font-size: small">
     Posted
     <%= time_ago_in_words(@post.created_at) %>
     ago
-  </small>
-</div>
+  </div>
 
 
-<div>
-  <br>
-  <%= link_to 'Edit', edit_post_path(@post) %>
-  <%= link_to 'Delete', post_path(@post),
+  <div>
+    <br>
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-primary" %>
+    <%= link_to 'Delete', delete_post_path(@post),
     method: :delete,
     data: {
       confirm: 'Are you sure?'
-    }
-  %>
+    }, class: "btn btn-outline-primary"
+    %>
+  </div>
 </div>

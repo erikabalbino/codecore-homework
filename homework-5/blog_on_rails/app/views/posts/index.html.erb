@@ -1,4 +1,28 @@
 
 <% @posts.each do |post| %>
-  <%= link_to post.title, post_path(post) %> <br>
+  <div class="container1"
+    style="margin-top: 20px">
+    <div class="container2"
+      style="margin-left: 10px;
+      margin-right: 15px;
+      margin-bottom: 10px;
+      padding: 20px;
+      border: solid 1px #ddd;
+      border-radius: 3px;
+      float:left;
+      width: 300px;
+      hight: 500px" >
+
+      <div class="" style="font-size: large">
+        <%= link_to post.title, post_path(post) %> <br>
+      </div>
+
+      <div class=""
+        style="font-size: small;
+          margin-top: 10px">
+        <%= post.body %>
+      </div>
+      
+    </div>
+  </div>
 <% end %>
