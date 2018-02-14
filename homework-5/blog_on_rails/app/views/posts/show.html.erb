@@ -5,6 +5,7 @@
   <div class="" style="font-size: large">
     <h2><%= @post.title %></h2>
   </div>
+
   <div class="" style="font-size: medium">
     <p><%= @post.body  %></p>
   </div>
@@ -19,11 +20,49 @@
   <div>
     <br>
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-primary" %>
-    <%= link_to 'Delete', delete_post_path(@post),
+    <%= link_to 'Delete', post_path(@post),
     method: :delete,
     data: {
       confirm: 'Are you sure?'
     }, class: "btn btn-outline-primary"
     %>
+  </div>
+
+  <%= form_for [@post, @comment] do |f| %>
+    <% if @comment.errors.present? %>
+      <p>
+        <%= @comment.errors.full_messages.join(', ') %>
+      </p>
+    <% end %>
+
+    <div style="font-size: large">
+      <%= f.label :Comment %><br>
+      <%= f.text_area :body, placeholder: "What's on your mind?" %>
+    </div>
+
+    <%= f.submit  "Submit" %>
+  <% end %>
+
+  <div class="">
+    <% @comments.each do |comment| %>
+    <div class="">
+      <p>
+        <%= comment.body %> <br />
+        <small>
+          Commented
+          <%= time_ago_in_words(comment.created_at) %>
+          ago
+        </small>
+        •
+        <small>
+          <%= link_to 'Delete',
+          comment_path(comment),
+          method: :delete,
+          data: { confirm: 'Are you sure?' }
+          %>
+        </small>
+      </p>
+    </div>
+    <% end %>
   </div>
 </div>

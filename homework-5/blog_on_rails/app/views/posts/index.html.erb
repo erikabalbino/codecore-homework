@@ -8,10 +8,10 @@
       margin-bottom: 10px;
       padding: 20px;
       border: solid 1px #ddd;
-      border-radius: 3px;
+      border-radius: 4px;
       float:left;
       width: 300px;
-      hight: 500px" >
+      height: 100px" >
 
       <div class="" style="font-size: large">
         <%= link_to post.title, post_path(post) %> <br>
@@ -19,10 +19,14 @@
 
       <div class=""
         style="font-size: small;
-          margin-top: 10px">
+          margin-top: 10px;
+          width: 95%;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden">
         <%= post.body %>
       </div>
-      
+
     </div>
   </div>
 <% end %>
