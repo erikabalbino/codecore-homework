@@ -1,5 +1,6 @@
 <div class="container_show"
   style="margin-left: 10px;
+        margin-right: 10px;
         margin-top: 20px">
 
   <div class="" style="font-size: large">
@@ -28,41 +29,52 @@
     %>
   </div>
 
-  <%= form_for [@post, @comment] do |f| %>
-    <% if @comment.errors.present? %>
-      <p>
-        <%= @comment.errors.full_messages.join(', ') %>
-      </p>
+  <div class="container_comments"
+        style="margin-top: 20px">
+
+    <%= form_for [@post, @comment] do |f| %>
+      <% if @comment.errors.present? %>
+        <p>
+          <%= @comment.errors.full_messages.join(', ') %>
+        </p>
+      <% end %>
+
+      <div style="font-size: large">
+        <%= f.label :Comment %><br>
+        <%= f.text_area :body, placeholder: "What's on your mind?", class: "form-control"%>
+      </div>
+
+      <div class="" style="margin-top: 20px" >
+        <%= f.submit  "Submit", class: "btn btn-outline-primary" %>
+      </div>
     <% end %>
 
-    <div style="font-size: large">
-      <%= f.label :Comment %><br>
-      <%= f.text_area :body, placeholder: "What's on your mind?" %>
+    <div class="" style="margin-top: 20px">
+      <% @comments.each do |comment| %>
+        <div class="" style="margin-bottom: 10px">
+          <div class="" style="font-size: medium">
+            <%= comment.body%>
+          </div>
+
+          <div style="font-size: medium">
+            <small>
+              Commented
+              <%= time_ago_in_words(comment.created_at) %>
+              ago
+            </small>
+            •
+            <small>
+              <%= link_to 'Delete',
+              comment_path(comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }
+              %>
+            </small>
+          </div>
+        </div>
+      <% end %>
     </div>
 
-    <%= f.submit  "Submit" %>
-  <% end %>
-
-  <div class="">
-    <% @comments.each do |comment| %>
-    <div class="">
-      <p>
-        <%= comment.body %> <br />
-        <small>
-          Commented
-          <%= time_ago_in_words(comment.created_at) %>
-          ago
-        </small>
-        •
-        <small>
-          <%= link_to 'Delete',
-          comment_path(comment),
-          method: :delete,
-          data: { confirm: 'Are you sure?' }
-          %>
-        </small>
-      </p>
-    </div>
-    <% end %>
   </div>
+
 </div>

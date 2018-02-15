@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     # to only be prefixed by the parent resource if it is
     # required. It's required for :index, :create
   end
-  
+
   # RESTful Post Routes
   # All CRUD operations
 
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   # post('/posts', to: 'posts#create', as: :posts)
   #
   # # Post#index
-  # get('/posts', to: 'posts#index')
+  get('/', to: 'posts#index')
   #
   # # Post#show
   # get('/posts/:id', to: 'posts#show', as: :post)
