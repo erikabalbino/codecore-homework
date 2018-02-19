@@ -17,6 +17,10 @@
     ago
   </div>
 
+  <div class="">
+      •
+      By <%= @post.user&.full_name || '[DELETED]' %>
+  </div>
 
   <div>
     <br>
@@ -70,6 +74,11 @@
               data: { confirm: 'Are you sure?' }
               %>
             </small>
+            •
+            <small>
+              By <%= comment.user&.full_name || '[DELETED]' %>
+            </small>
+
           </div>
         </div>
       <% end %>

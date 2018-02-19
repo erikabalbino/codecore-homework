@@ -15,4 +15,11 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  */
 
- @import "bootstrap"
+ @import "bootstrap";
+
+ .flash-message {
+   padding: 8px;
+   color: darkolivegreen;
+   background-color: palegreen;
+   border-radius: 5px;
+ }
