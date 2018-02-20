@@ -1,3 +1,4 @@
+
 PASSWORD = 'supersecret'
 
 User.destroy_all
@@ -8,7 +9,8 @@ super_user = User.create(
   first_name: 'Jon',
   last_name: 'Snow',
   email: 'js@winterfell.gov',
-  password: PASSWORD
+  password: PASSWORD,
+  is_admin: true
 )
 
 10.times.each do
@@ -50,4 +52,5 @@ comments = Comment.all
 puts Cowsay.say "Created #{posts.count} posts", :frogs
 puts Cowsay.say "Created #{comments.count} comments", :sheep
 
-puts "Login with #{super_user.email} and password of '#{PASSWORD}'"
+# puts "Login with #{super_user.email} and password of '#{PASSWORD}'"
+puts "Login as admin with #{super_user.email} and password of '#{PASSWORD}'"

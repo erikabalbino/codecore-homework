@@ -1,6 +1,8 @@
 <div class="container"
     style="margin-left: 0px; margin-top: 70px">
-  <h1>Sign Up</h1>
+    <div class="form-group col-md-6">
+      <h1>Sign Up</h1>
+    </div>
 
   <%= form_for @user do |f| %>
     <% if @user.errors.any? %>
@@ -9,31 +11,34 @@
       </p>
     <% end %>
 
-    <div>
+    <div class="form-group col-md-6">
       <%= f.label :first_name %>
-      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name, class: "form-control"  %>
     </div>
 
-    <div>
+    <div class="form-group col-md-6">
       <%= f.label :last_name %>
-      <%= f.text_field :last_name %>
+      <%= f.text_field :last_name, class: "form-control"  %>
     </div>
 
-    <div>
+    <div class="form-group col-md-6">
       <%= f.label :email %>
-      <%= f.email_field :email %>
+      <%= f.email_field :email, class: "form-control"  %>
     </div>
 
-    <div>
+    <div class="form-group col-md-6">
       <%= f.label :password %>
-      <%= f.password_field :password %>
+      <%= f.password_field :password, class: "form-control"  %>
     </div>
 
-    <div>
+    <div class="form-group col-md-6">
       <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation %> <br><br>
+      <%= f.password_field :password_confirmation, class: "form-control"  %>
     </div>
 
-    <%= f.submit class: "btn btn-outline-primary"%>
+    <div class="form-group col-md-6">
+      <%= f.submit class: "btn btn-outline-primary"%>
+    </div>
+
   <% end %>
 </div>
