@@ -1,0 +1,16 @@
+<%- include('../partials/header') %>
+
+<div class="">
+  <% for (let cohort of cohorts) { %>
+    <div class="card mb-2">
+      <div class="card-body">
+      <img class="rounded-circle float-left" src="<%= cohort.logoUrl %>" style="width: 30px; height: 30px" />
+      <h4 class="card-title" style="margin-left: 38px"><%= cohort.name %></h4>
+      <p class="card-text"><%= cohort.members %></p>
+      <a class="btn btn-primary" href="<%= cohort.id %>"  style="float: left">Show cohort</a>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>

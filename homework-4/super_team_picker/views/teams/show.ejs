@@ -1,0 +1,78 @@
+
+<%- include('../partials/header') %>
+
+<div class="">
+  <div class="card mb-2">
+    <div class="card-body">
+      <h4 class="card-title"><%= cohorts.name %></h4>
+      <p class="card-text"><%= cohorts.members %></p>
+      <hr>
+      <form method="get">
+        <div class="form-group">
+          <legend class="form-label" style="font-size: 1rem" >Methods</legend>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="method" id="gridRadios1" value="teamCount"
+            <% if (!opt || opt === "teamCount") { %>
+              checked
+            <% }%>
+            >
+            <label class="form-check-label" for="gridRadios1">
+              Team Count
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="method" id="gridRadios2" value="perTeam"
+              <% if (opt === "perTeam") { %>
+                checked
+              <% }%>
+            >
+            <label class="form-check-label" for="gridRadios2">
+              Number Per Team
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="inputPassword3" class="form-label" >Quantity</label>
+          <input class="form-control"  id="inputPassword3" name="quantity"
+          <% if (quantity) { %>
+            value = "<%=quantity%>"
+          <% } %>
+          >
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-outline-primary btn-block">Assign Teams</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card-body mb-2">
+      <% if (group.length > 0) { %>
+        <div class="form-inline">
+          <h3 class="ml-2">#</h3>
+          <h3 class="ml-4">Members</h3>
+        </div>
+        <% for (let member of group) { %>
+          <hr>
+          <div class="form-inline" >
+            <h5 class="ml-2"><%= group.indexOf(member)+1 %></h5>
+            <h5 class="ml-4"> <%= member %></h5>
+          </div>
+        <% } %>
+      <% } %>
+      <% if (Object.keys(group2).length > 0) { %>
+        <div class="form-inline">
+          <h3 class="ml-2">#</h3>
+          <h3 class="ml-4">Members</h3>
+        </div>
+        <% for (let team in group2) { %>
+          <hr>
+          <div class="form-inline">
+            <h5 class="ml-2"><%= team %></h5>
+            <h5 class="ml-4"> <%= Object.getOwnPropertyDescriptor(group2, team).value %></h5>
+          </div>
+        <% } %>
+      <% } %>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
