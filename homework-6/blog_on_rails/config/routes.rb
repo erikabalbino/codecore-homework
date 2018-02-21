@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     # required. It's required for :index, :create
   end
 
+  # Users/password
+  get('/users/:id/editpassword', to: 'users#editpassword', as: :edit_password)
+  patch('/users/:id/updatepassword', to: 'users#updatepassword', as: :update_password)
+
   # RESTful Post Routes
   # All CRUD operations
 
