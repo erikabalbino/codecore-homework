@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :title, presence: true, uniqueness: true
+
   validates :body,
     presence: {message: "must be given"},
     length: {minimum: 50}
