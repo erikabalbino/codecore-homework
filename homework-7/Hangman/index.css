@@ -3,18 +3,15 @@
 }
 
 .container1 {
-      width: 50%;
+      width: 500px;
         height: 120px;
         text-align: center;
-        background-color: #f4f5f7;
         padding: 10px;
 
 }
 
 .container2 {
-  background-color: #f4f5f7;
-  text-align: center;
-        width: 50%;
+        width: 500px;
         height: 30px;
         padding: 10px;
         margin-top: 20px;
@@ -22,18 +19,18 @@
 
 .container3{
   text-align: center;
-  background-color: #f4f5f7;
+  width: 500px;
   height: 595px;
   padding: 20px;
   margin-top: 20px;
   background-repeat: no-repeat;
 }
 
-.container3 img{
+/* .container3 img{
   width: 500px;
   height: 500px;
   margin-top: 40px;
-}
+} */
 
 .letter {
   width: 30px;
@@ -67,5 +64,3 @@
   margin: 0;
   visibility: hidden;
 }
-
-#picture-head {background-image: url(./images/gallows.jpg);}
