@@ -1,0 +1,80 @@
+<div class="container_show"
+  style="margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 70px">
+
+  <div class="" style="font-size: large">
+    <h2><%= @post.title %></h2>
+  </div>
+
+  <div class="" style="font-size: medium">
+    <p><%= @post.body  %></p>
+  </div>
+
+  <div style="font-size: small">
+    Posted
+    <%= time_ago_in_words(@post.created_at) %>
+    ago
+  </div>
+
+
+  <div>
+    <br>
+    <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-outline-primary" %>
+    <%= link_to 'Delete', post_path(@post),
+    method: :delete,
+    data: {
+      confirm: 'Are you sure?'
+    }, class: "btn btn-outline-primary"
+    %>
+  </div>
+
+  <div class="container_comments"
+        style="margin-top: 20px">
+
+    <%= form_for [@post, @comment] do |f| %>
+      <% if @comment.errors.present? %>
+        <p>
+          <%= @comment.errors.full_messages.join(', ') %>
+        </p>
+      <% end %>
+
+      <div style="font-size: large">
+        <%= f.label :Comment %><br>
+        <%= f.text_area :body, placeholder: "What's on your mind?", class: "form-control"%>
+      </div>
+
+      <div class="" style="margin-top: 20px" >
+        <%= f.submit  "Submit", class: "btn btn-outline-primary" %>
+      </div>
+    <% end %>
+
+    <div class="" style="margin-top: 20px">
+      <% @comments.each do |comment| %>
+        <div class="" style="margin-bottom: 10px">
+          <div class="" style="font-size: medium">
+            <%= comment.body%>
+          </div>
+
+          <div style="font-size: medium">
+            <small>
+              Commented
+              <%= time_ago_in_words(comment.created_at) %>
+              ago
+            </small>
+            •
+            <small>
+              <%= link_to 'Delete',
+              comment_path(comment),
+              method: :delete,
+              data: { confirm: 'Are you sure?' }
+              %>
+            </small>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
