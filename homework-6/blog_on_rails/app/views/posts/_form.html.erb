@@ -1,0 +1,25 @@
+<div class="container"
+      style="margin-left: 0px; margin-top: 70px">
+
+  <%= form_for @post do |f| %>
+    <br>
+    <% if @post.errors.present? %>
+      <p><%= @post.errors.full_messages.join(', ') %></p>
+    <% end %>
+
+    <div class="form-group col-md-6">
+      <%= f.label :title %> <br>
+      <%= f.text_field :title, class: "form-control" %><br>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.label :body %><br>
+      <%= f.text_area :body, class: "form-control" %><br>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.submit class: "btn btn-outline-primary" %>
+    </div>
+
+  <% end %>
+</div>

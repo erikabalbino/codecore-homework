@@ -43,6 +43,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+/homework-6/blog_on_rails/tmp
+
 ### Node ###
 # Logs
 logs
@@ -117,7 +119,7 @@ capybara-*.html
 /coverage/
 /spec/tmp
 *.orig
-rerun.txt
+
 pickle-email-*.html
 /homework-6/blog_on_rails/tmp
 

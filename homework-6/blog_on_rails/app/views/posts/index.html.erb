@@ -1,0 +1,16 @@
+
+<% @posts.each do |post| %>
+  <div class="container1"
+    style="margin-top: 70px">
+    <div class="posts_index_container2">
+      <div class="" style="font-size: large">
+        <%= link_to post.title, post_path(post) %> <br>
+      </div>
+
+      <div class="posts_index_body">
+        <%= post.body %>
+      </div>
+
+    </div>
+  </div>
+<% end %>
