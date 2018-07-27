@@ -112,6 +112,7 @@ capybara-*.html
 .rspec
 /log
 /tmp
+/*/tmp
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /public/system
@@ -119,7 +120,9 @@ capybara-*.html
 /spec/tmp
 *.orig
 rerun.txt
-pickle-email-*.html
+pickle-email-*.
+
+/homework-6/blog_on_rails/tmp
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
