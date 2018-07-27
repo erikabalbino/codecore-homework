@@ -119,10 +119,10 @@ capybara-*.html
 /coverage/
 /spec/tmp
 *.orig
-rerun.txt
-pickle-email-*.
 
+pickle-email-*.html
 /homework-6/blog_on_rails/tmp
+
 
 # TODO Comment out this rule if you are OK with secrets being uploaded to the repo
 config/initializers/secret_token.rb
